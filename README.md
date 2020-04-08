@@ -3,9 +3,9 @@ Want to do something fun for your players during easter ?
 Then this is the script for you. You have alot of options inside the Config.lua
 
 # Requirements
-- es_extended
-- mythic_progbar
-- mythic_notify(optional)
+- [es_extended](https://github.com/ESX-Org/es_extended)
+- mythic_progbar(no longer obtainable)
+- mythic_notify(optional, also no longer obtainable)
 
 Video of the script https://streamable.com/734jn5
 
