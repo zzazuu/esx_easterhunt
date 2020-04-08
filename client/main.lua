@@ -76,11 +76,13 @@ function spawnEggs()
 	while not eggsLoaded do
 		Citizen.Wait(0)
 		for i=1, #Config.Locations do
-			ESX.Game.SpawnObject(Config.Prop, Config.Locations[i].coords, function(egg)
-				PlaceObjectOnGroundProperly(egg)
-				Citizen.Wait(300)
-				FreezeEntityPosition(egg, true)
-			end)
+			if ESX.Game.IsSpawnPointClear(Config.Locations[i].coords, 1.0) then
+			    ESX.Game.SpawnObject(Config.Prop, Config.Locations[i].coords, function(egg)
+				  PlaceObjectOnGroundProperly(egg)
+				  Citizen.Wait(300)
+				  FreezeEntityPosition(egg, true)
+				end)
+			end
 		end
 		eggsLoaded = true
 	end
