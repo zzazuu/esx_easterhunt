@@ -7,8 +7,6 @@ RegisterServerEvent('esx_easterhunt:reward')
 AddEventHandler('esx_easterhunt:reward', function()
 	local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    --local money   = math.random(Config.MoneyReward.min, Config.MoneyReward.max);
-    --local item = math.random(1, #Config.Items)
     local reward = math.random(1, 10)
         if reward > 5 then
           local money = math.random(Config.MoneyReward.min, Config.MoneyReward.max);

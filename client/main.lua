@@ -65,11 +65,9 @@ function collectEgg(player, egg)
 			ClearPedTasksImmediately(player)
 			Citizen.Wait(100)
 			TriggerServerEvent('esx_easterhunt:reward')
-			--exports['mythic_notify']:DoLongHudText('inform', _U('picked_egg'))
 			notification(_U('picked_egg'), 'inform')
 		else
 			notification(_U('not_picked_egg'), 'error')
-            --exports['mythic_notify']:DoLongHudText('inform', _U('not_picked_egg'))
         end
     end)
 end
@@ -78,7 +76,6 @@ function spawnEggs()
 	while not eggsLoaded do
 		Citizen.Wait(0)
 		for i=1, #Config.Locations do
-			--local loadedEggs = Config.Locations[i]
 			ESX.Game.SpawnObject(Config.Prop, Config.Locations[i].coords, function(egg)
 				PlaceObjectOnGroundProperly(egg)
 				Citizen.Wait(300)
@@ -105,7 +102,6 @@ function notification(text, type)
     end
 	if Config.UseMythicNotify then
 		exports['mythic_notify']:DoLongHudText(type, text)
-        --TriggerClientEvent('mythic_notify:client:SendAlert', target, { type = type, text = text})
     else
         ESX.ShowNotification(text)
     end
