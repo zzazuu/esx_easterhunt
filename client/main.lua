@@ -17,11 +17,6 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
     end)
 end)
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-  PlayerData.job = job
-end)
-
 Citizen.CreateThread(function()
 	while true do
 		local sleepThread = 500
@@ -96,7 +91,9 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(5000)--grace
 		if NetworkIsHost() then
-			spawnEggs()
+			if not eggsLoaded then
+			  spawnEggs()
+			end
 		end
 		break
     end
