@@ -7,7 +7,7 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-	
+
 	PlayerData = ESX.GetPlayerData()
 end)
 
@@ -76,7 +76,7 @@ function spawnEggs()
 	while not eggsLoaded do
 		Citizen.Wait(0)
 		for i=1, #Config.Locations do
-			if ESX.Game.IsSpawnPointClear(Config.Locations[i].coords, 1.0) then
+			if ESX.Game.IsSpawnPointClear(Config.Locations[i].coords, 2.0) then
 			    ESX.Game.SpawnObject(Config.Prop, Config.Locations[i].coords, function(egg)
 				  PlaceObjectOnGroundProperly(egg)
 				  Citizen.Wait(300)
