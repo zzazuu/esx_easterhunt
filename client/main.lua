@@ -7,11 +7,13 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
+	
+	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
-  PlayerData = xPlayer
+  ESX.PlayerData = xPlayer
     ESX.TriggerServerCallback('esx_easterhunt:getstatusoneggs', function(status)
 	  eggsLoaded = status
     end)
