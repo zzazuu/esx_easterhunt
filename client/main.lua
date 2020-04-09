@@ -11,7 +11,10 @@ end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
-  PlayerData = xPlayer   
+  PlayerData = xPlayer
+    ESX.TriggerServerCallback('esx_easterhunt:getstatusoneggs', function(status)
+	  eggsLoaded = status
+    end)
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -85,6 +88,7 @@ function spawnEggs()
 			end
 		end
 		eggsLoaded = true
+		TriggerServerEvent('esx_easterhunt:loadedeggs', eggsLoaded)
 	end
 end
 

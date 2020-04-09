@@ -1,7 +1,10 @@
 ESX = nil
-
+local loadedeggs = false
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+ESX.RegisterServerCallback('esx_easterhunt:getstatusoneggs',function(source, cb)
+    cb(loadedeggs)
+end)
 
 RegisterServerEvent('esx_easterhunt:reward')
 AddEventHandler('esx_easterhunt:reward', function()
@@ -19,6 +22,11 @@ AddEventHandler('esx_easterhunt:reward', function()
           xPlayer.addInventoryItem(Config.Items[item], 1)
           notification(_U('item_reward'), _source, 'success')
         end
+end)
+
+RegisterServerEvent('esx_easterhunt:loadedeggs')
+AddEventHandler('esx_easterhunt:loadedeggs', function(boolean)
+    loadedeggs = boolean
 end)
 
 function notification(text, target, type)
