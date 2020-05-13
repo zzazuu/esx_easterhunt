@@ -19,6 +19,9 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
     end)
 end)
 
+
+--- Test Test Test
+
 Citizen.CreateThread(function()
 	while true do
 		local sleepThread = 500
