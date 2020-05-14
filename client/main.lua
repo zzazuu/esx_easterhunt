@@ -41,7 +41,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-
 function collectEgg(player, egg)
 	exports['mythic_progbar']:Progress({
         name = "collect_easter_egg",
